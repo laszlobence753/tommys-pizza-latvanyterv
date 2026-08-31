@@ -1083,6 +1083,45 @@ footer li a:hover{color:var(--gold)}
    12 px-en összemosódik, a számok egymásba csúsznak. Figtree + nagyobb
    sorköz — így éles marad, és elválik a fölötte/alatta álló ártól. */
 .mrow .p i{font-style:normal;font-family:'Figtree',sans-serif;font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.03em;font-variant-numeric:lining-nums tabular-nums}
+/* grammsúly a név mellett — halkabb, mint a címkék, de olvasható marad */
+.mrow .nm .gr{font-family:'Figtree',sans-serif;font-size:12px;font-weight:700;color:var(--muted-2);letter-spacing:.04em;font-variant-numeric:lining-nums tabular-nums}
+
+/* ── A pizza-lista belső görgetése ──────────────────────────────
+   23 tétel mobilon 3,6 képernyőnyi volt, az egész oldal negyede.
+   Saját görgetésbe zárva a szekció ~0,9 képernyő marad.
+   Az alsó él addig halványul el, amíg van még mit görgetni — ez a
+   jelzés, hogy a lista folytatódik (mobilon a görgetősáv láthatatlan).
+   A gorgetes-lancolas SZANDEKOSAN alapertelmezett: a lista vegen a swipe
+   tovabbadodik az oldalnak. Az overscroll-behavior:contain itt beragadas-erzest
+   adna mobilon — a vendegnek fel kellene emelnie az ujjat, hogy tovabbjusson.
+   (Ebben a blokkban NE hasznalj visszafele aposztrofot — template literal.) */
+.mbox{position:relative}
+.mbox::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:78px;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,var(--ink) 8%,rgba(16,12,13,.82) 46%,rgba(16,12,13,0) 100%);
+  transition:opacity .3s var(--ease);
+}
+.mbox.at-end::after{opacity:0}
+.mscroll{
+  max-height:clamp(420px,62vh,760px);
+  overflow-y:auto;
+  padding-right:16px;padding-bottom:34px;
+  scrollbar-width:thin;scrollbar-color:var(--gold-lo) rgba(244,237,226,.07);
+}
+.mscroll::-webkit-scrollbar{width:7px}
+.mscroll::-webkit-scrollbar-track{background:rgba(244,237,226,.07)}
+.mscroll::-webkit-scrollbar-thumb{background:var(--gold-lo);border-radius:4px}
+.mscroll::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+/* billentyűzettel is görgethető kell legyen, ezért fókuszálható — lássuk is */
+.mscroll:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+/* a dobozon BELUL gyorsabb a reveal: 0,95 mp-es fade egy kis gorgeto-dobozban akadasnak tunik */
+.mscroll [data-rv]{transition-duration:.45s;transform:translateY(12px) scale(.992)}
+.mscroll [data-rv].in{transform:none}
+@media(max-width:820px){
+  /* mobilon alacsonyabb doboz: maradjon korulotte eleg oldal, amin az ujj
+     biztosan az OLDALT gorgeti, ne a listat */
+  .mscroll{max-height:min(56vh,460px);padding-right:12px}
+}
 /* a burgerek menü-ára: a fő ár ALATT, halkabban — ne versenyezzen vele */
 .mrow .p .alt{margin-top:0;white-space:nowrap}
 .tag{font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;padding:2.5px 6px;border:1px solid;line-height:1;white-space:nowrap}
@@ -1318,33 +1357,38 @@ footer li a:hover{color:var(--gold)}
     <div class="l"><span class="idx">02</span><h2 data-i18n="pz.h">Pizzáink</h2></div>
     <div class="r" data-i18n="pz.r">23-féle · 22 lejtől</div>
   </div>
+  <div class="mbox">
+    <div class="mscroll" tabindex="0" role="group"
+         aria-label="Pizzák listája — görgethető" data-aria-ro="Lista de pizza — derulabilă">
   <div class="menu-grid">
     <div>
-      <div class="mrow" data-rv><span class="n">01</span><div><div class="nm"><strong data-i18n="pz.tommys.n">Tommy's</strong></div><em data-i18n="pz.tommys.d">pizzaszósz · mozzarella · szalámi · virsli · gomba · kukorica · hagyma</em></div><span class="p"><i>900 g</i><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">02</span><div><div class="nm"><strong data-i18n="pz.ungarese.n">Ungarese</strong><b class="tag hot" data-i18n="tag.hot">csípős</b></div><em data-i18n="pz.ungarese.d">pizzaszósz · mozzarella · szalámi · virsli · paprika · csípős paprika · hagyma</em></div><span class="p"><i>800 g</i><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">03</span><div><div class="nm"><strong data-i18n="pz.mexicana.n">Mexicana</strong><b class="tag hot" data-i18n="tag.hot">csípős</b></div><em data-i18n="pz.mexicana.d">pizzaszósz · mozzarella · gomba · kukorica · hagyma · bab · csípős paprika · szalámi · cérnakolbász</em></div><span class="p"><i>900 g</i><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">04</span><div><div class="nm"><strong data-i18n="pz.prosciutto.n">Prosciutto</strong></div><em data-i18n="pz.prosciutto.d">pizzaszósz · mozzarella · sonka</em></div><span class="p"><i>700 g</i><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">05</span><div><div class="nm"><strong data-i18n="pz.hawai.n">Hawai</strong></div><em data-i18n="pz.hawai.d">pizzaszósz · mozzarella · sonka · ananász</em></div><span class="p"><i>700 g</i><b>28<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">06</span><div><div class="nm"><strong data-i18n="pz.tirolese.n">Tirolese</strong></div><em data-i18n="pz.tirolese.d">pizzaszósz · mozzarella · sonka · kukorica</em></div><span class="p"><i>700 g</i><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">07</span><div><div class="nm"><strong data-i18n="pz.funghi.n">Funghi</strong><b class="tag veg" data-i18n="tag.veg">vega</b></div><em data-i18n="pz.funghi.d">pizzaszósz · mozzarella · gomba</em></div><span class="p"><i>650 g</i><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">08</span><div><div class="nm"><strong data-i18n="pz.salami.n">Salami</strong></div><em data-i18n="pz.salami.d">pizzaszósz · mozzarella · szalámi</em></div><span class="p"><i>650 g</i><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">09</span><div><div class="nm"><strong data-i18n="pz.bavarese.n">Bavarese</strong></div><em data-i18n="pz.bavarese.d">pizzaszósz · mozzarella · sonka · hagyma · fokhagyma · cérnakolbász · császárszalonna · szalámi</em></div><span class="p"><i>900 g</i><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">10</span><div><div class="nm"><strong data-i18n="pz.margherita.n">Margherita</strong><b class="tag veg" data-i18n="tag.veg">vega</b></div><em data-i18n="pz.margherita.d">pizzaszósz · mozzarella</em></div><span class="p"><i>650 g</i><b>22<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">11</span><div><div class="nm"><strong data-i18n="pz.gyros.n">Gyros</strong></div><em data-i18n="pz.gyros.d">pizzaszósz · mozzarella · gyros hús csirkemellből · paradicsom · hagyma · uborka · gyros öntet</em></div><span class="p"><i>850 g</i><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">12</span><div><div class="nm"><strong data-i18n="pz.tonno.n">Tonno</strong></div><em data-i18n="pz.tonno.d">pizzaszósz · mozzarella · tonhal · hagyma</em></div><span class="p"><i>850 g</i><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">01</span><div><div class="nm"><strong data-i18n="pz.tommys.n">Tommy's</strong><b class="gr">900 g</b></div><em data-i18n="pz.tommys.d">pizzaszósz · mozzarella · szalámi · virsli · gomba · kukorica · hagyma</em></div><span class="p"><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">02</span><div><div class="nm"><strong data-i18n="pz.ungarese.n">Ungarese</strong><b class="tag hot" data-i18n="tag.hot">csípős</b><b class="gr">800 g</b></div><em data-i18n="pz.ungarese.d">pizzaszósz · mozzarella · szalámi · virsli · paprika · csípős paprika · hagyma</em></div><span class="p"><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">03</span><div><div class="nm"><strong data-i18n="pz.mexicana.n">Mexicana</strong><b class="tag hot" data-i18n="tag.hot">csípős</b><b class="gr">900 g</b></div><em data-i18n="pz.mexicana.d">pizzaszósz · mozzarella · gomba · kukorica · hagyma · bab · csípős paprika · szalámi · cérnakolbász</em></div><span class="p"><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">04</span><div><div class="nm"><strong data-i18n="pz.prosciutto.n">Prosciutto</strong><b class="gr">700 g</b></div><em data-i18n="pz.prosciutto.d">pizzaszósz · mozzarella · sonka</em></div><span class="p"><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">05</span><div><div class="nm"><strong data-i18n="pz.hawai.n">Hawai</strong><b class="gr">700 g</b></div><em data-i18n="pz.hawai.d">pizzaszósz · mozzarella · sonka · ananász</em></div><span class="p"><b>28<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">06</span><div><div class="nm"><strong data-i18n="pz.tirolese.n">Tirolese</strong><b class="gr">700 g</b></div><em data-i18n="pz.tirolese.d">pizzaszósz · mozzarella · sonka · kukorica</em></div><span class="p"><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">07</span><div><div class="nm"><strong data-i18n="pz.funghi.n">Funghi</strong><b class="tag veg" data-i18n="tag.veg">vega</b><b class="gr">650 g</b></div><em data-i18n="pz.funghi.d">pizzaszósz · mozzarella · gomba</em></div><span class="p"><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">08</span><div><div class="nm"><strong data-i18n="pz.salami.n">Salami</strong><b class="gr">650 g</b></div><em data-i18n="pz.salami.d">pizzaszósz · mozzarella · szalámi</em></div><span class="p"><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">09</span><div><div class="nm"><strong data-i18n="pz.bavarese.n">Bavarese</strong><b class="gr">900 g</b></div><em data-i18n="pz.bavarese.d">pizzaszósz · mozzarella · sonka · hagyma · fokhagyma · cérnakolbász · császárszalonna · szalámi</em></div><span class="p"><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">10</span><div><div class="nm"><strong data-i18n="pz.margherita.n">Margherita</strong><b class="tag veg" data-i18n="tag.veg">vega</b><b class="gr">650 g</b></div><em data-i18n="pz.margherita.d">pizzaszósz · mozzarella</em></div><span class="p"><b>22<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">11</span><div><div class="nm"><strong data-i18n="pz.gyros.n">Gyros</strong><b class="gr">850 g</b></div><em data-i18n="pz.gyros.d">pizzaszósz · mozzarella · gyros hús csirkemellből · paradicsom · hagyma · uborka · gyros öntet</em></div><span class="p"><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">12</span><div><div class="nm"><strong data-i18n="pz.tonno.n">Tonno</strong><b class="gr">850 g</b></div><em data-i18n="pz.tonno.d">pizzaszósz · mozzarella · tonhal · hagyma</em></div><span class="p"><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
     </div>
     <div>
-      <div class="mrow" data-rv><span class="n">13</span><div><div class="nm"><strong data-i18n="pz.texas.n">Texas</strong><b class="tag hot" data-i18n="tag.hot">csípős</b></div><em data-i18n="pz.texas.d">pizzaszósz · mozzarella · kukorica · kolbász · csípős paprika · bab</em></div><span class="p"><i>850 g</i><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">14</span><div><div class="nm"><strong data-i18n="pz.contadina.n">Contadina</strong></div><em data-i18n="pz.contadina.d">pizzaszósz · mozzarella · hagyma · kukorica · császárszalonna · fokhagyma</em></div><span class="p"><i>700 g</i><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">15</span><div><div class="nm"><strong data-i18n="pz.csirkemelles.n">Csirkemelles</strong></div><em data-i18n="pz.csirkemelles.d">pizzaszósz · mozzarella · csirkemell · kukorica</em></div><span class="p"><i>850 g</i><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">16</span><div><div class="nm"><strong data-i18n="pz.colore.n">Colore</strong><b class="tag veg" data-i18n="tag.veg">vega</b></div><em data-i18n="pz.colore.d">pizzaszósz · mozzarella · paprika · kukorica · hagyma · paradicsom · oliva · gomba</em></div><span class="p"><i>850 g</i><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">17</span><div><div class="nm"><strong data-i18n="pz.quattro-carni.n">Quattro Carni</strong></div><em data-i18n="pz.quattro-carni.d">pizzaszósz · mozzarella · cérnakolbász · szalámi · sonka · császárszalonna</em></div><span class="p"><i>900 g</i><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">18</span><div><div class="nm"><strong data-i18n="pz.quattro-formagi.n">Quattro Formagi</strong><b class="tag veg" data-i18n="tag.veg">vega</b></div><em data-i18n="pz.quattro-formagi.d">pizzaszósz · mozzarella · parmezán · gorgonzola</em></div><span class="p"><i>700 g</i><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">19</span><div><div class="nm"><strong data-i18n="pz.quattro-stagioni.n">Quattro Stagioni</strong></div><em data-i18n="pz.quattro-stagioni.d">pizzaszósz · mozzarella · sonka · gomba · oliva · paprika</em></div><span class="p"><i>750 g</i><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">20</span><div><div class="nm"><strong data-i18n="pz.prosciutto-funghi.n">Prosciutto Funghi</strong></div><em data-i18n="pz.prosciutto-funghi.d">pizzaszósz · mozzarella · sonka · gomba</em></div><span class="p"><i>700 g</i><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">21</span><div><div class="nm"><strong data-i18n="pz.capriciosa.n">Capriciosa</strong></div><em data-i18n="pz.capriciosa.d">pizzaszósz · mozzarella · sonka · gomba · szalámi</em></div><span class="p"><i>750 g</i><b>26<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">22</span><div><div class="nm"><strong data-i18n="pz.salamino.n">Salamino</strong><b class="tag hot" data-i18n="tag.hot">csípős</b></div><em data-i18n="pz.salamino.d">pizzaszósz · mozzarella · chorizo szalámi · csípős paprika · gomba</em></div><span class="p"><i>750 g</i><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
-      <div class="mrow" data-rv><span class="n">23</span><div><div class="nm"><strong data-i18n="pz.rimini.n">Rimini</strong></div><em data-i18n="pz.rimini.d">pizzaszósz · mozzarella · sonka · szalámi</em></div><span class="p"><i>700 g</i><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">13</span><div><div class="nm"><strong data-i18n="pz.texas.n">Texas</strong><b class="tag hot" data-i18n="tag.hot">csípős</b><b class="gr">850 g</b></div><em data-i18n="pz.texas.d">pizzaszósz · mozzarella · kukorica · kolbász · csípős paprika · bab</em></div><span class="p"><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">14</span><div><div class="nm"><strong data-i18n="pz.contadina.n">Contadina</strong><b class="gr">700 g</b></div><em data-i18n="pz.contadina.d">pizzaszósz · mozzarella · hagyma · kukorica · császárszalonna · fokhagyma</em></div><span class="p"><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">15</span><div><div class="nm"><strong data-i18n="pz.csirkemelles.n">Csirkemelles</strong><b class="gr">850 g</b></div><em data-i18n="pz.csirkemelles.d">pizzaszósz · mozzarella · csirkemell · kukorica</em></div><span class="p"><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">16</span><div><div class="nm"><strong data-i18n="pz.colore.n">Colore</strong><b class="tag veg" data-i18n="tag.veg">vega</b><b class="gr">850 g</b></div><em data-i18n="pz.colore.d">pizzaszósz · mozzarella · paprika · kukorica · hagyma · paradicsom · oliva · gomba</em></div><span class="p"><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">17</span><div><div class="nm"><strong data-i18n="pz.quattro-carni.n">Quattro Carni</strong><b class="gr">900 g</b></div><em data-i18n="pz.quattro-carni.d">pizzaszósz · mozzarella · cérnakolbász · szalámi · sonka · császárszalonna</em></div><span class="p"><b>30<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">18</span><div><div class="nm"><strong data-i18n="pz.quattro-formagi.n">Quattro Formagi</strong><b class="tag veg" data-i18n="tag.veg">vega</b><b class="gr">700 g</b></div><em data-i18n="pz.quattro-formagi.d">pizzaszósz · mozzarella · parmezán · gorgonzola</em></div><span class="p"><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">19</span><div><div class="nm"><strong data-i18n="pz.quattro-stagioni.n">Quattro Stagioni</strong><b class="gr">750 g</b></div><em data-i18n="pz.quattro-stagioni.d">pizzaszósz · mozzarella · sonka · gomba · oliva · paprika</em></div><span class="p"><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">20</span><div><div class="nm"><strong data-i18n="pz.prosciutto-funghi.n">Prosciutto Funghi</strong><b class="gr">700 g</b></div><em data-i18n="pz.prosciutto-funghi.d">pizzaszósz · mozzarella · sonka · gomba</em></div><span class="p"><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">21</span><div><div class="nm"><strong data-i18n="pz.capriciosa.n">Capriciosa</strong><b class="gr">750 g</b></div><em data-i18n="pz.capriciosa.d">pizzaszósz · mozzarella · sonka · gomba · szalámi</em></div><span class="p"><b>26<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">22</span><div><div class="nm"><strong data-i18n="pz.salamino.n">Salamino</strong><b class="tag hot" data-i18n="tag.hot">csípős</b><b class="gr">750 g</b></div><em data-i18n="pz.salamino.d">pizzaszósz · mozzarella · chorizo szalámi · csípős paprika · gomba</em></div><span class="p"><b>27<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">23</span><div><div class="nm"><strong data-i18n="pz.rimini.n">Rimini</strong><b class="gr">700 g</b></div><em data-i18n="pz.rimini.d">pizzaszósz · mozzarella · sonka · szalámi</em></div><span class="p"><b>25<span data-i18n="cur">&nbsp;lej</span></b></span></div>
+    </div>
+  </div>
     </div>
   </div>
   <div class="family" data-rv>
@@ -1785,6 +1829,12 @@ function setLang(l){
     if(src[k]!==undefined) el.innerHTML = src[k];
     else if(l!=='ro' && HU[k]!==undefined) el.innerHTML = HU[k];
   });
+  // aria-feliratok: a data-i18n innerHTML-t ír, attribútumhoz külön kell.
+  // A magyar szöveg magában az aria-label-ben áll, így JS nélkül is helyes.
+  document.querySelectorAll('[data-aria-ro]').forEach(el=>{
+    if(!el.dataset.ariaHu) el.dataset.ariaHu = el.getAttribute('aria-label') || '';
+    el.setAttribute('aria-label', l==='ro' ? el.dataset.ariaRo : el.dataset.ariaHu);
+  });
   // kép alt-szövegek
   document.querySelectorAll('img[data-alt-hu]').forEach(i=>{
     const hu = i.dataset.altHu;
@@ -1845,6 +1895,21 @@ const io = new IntersectionObserver((es)=>{
   es.forEach(e=> e.target.classList.toggle('in', e.isIntersecting));
 },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('[data-rv]').forEach(el=>io.observe(el));
+
+/* Saját görgetésű listák (pizza-étlap): az alsó elhalványulás jelzi, hogy van még.
+   A lista végén levesszük — és akkor is, ha a tartalom elfér a dobozban, hogy a
+   jelzés soha ne hazudjon. A ResizeObserver a nyelvváltás és a törésponti
+   átrendeződés utáni magasság-változást is elkapja. */
+document.querySelectorAll('.mbox').forEach(box=>{
+  const sc = box.querySelector('.mscroll');
+  if(!sc) return;
+  const upd = () => box.classList.toggle('at-end',
+    sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 4);
+  sc.addEventListener('scroll', upd, {passive:true});
+  addEventListener('resize', upd);
+  if(window.ResizeObserver) new ResizeObserver(upd).observe(sc);
+  upd();
+});
 
 /* nav scrolled + hero parallax + glow drift */
 const nav = document.getElementById('nav'), heroImg = document.getElementById('heroImg'), glow = document.getElementById('glow');
