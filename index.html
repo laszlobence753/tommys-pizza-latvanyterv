@@ -726,17 +726,43 @@ ul{margin:0;padding:0;list-style:none}
 .burger.open span::before{top:0;transform:rotate(45deg)}
 .burger.open span::after{top:0;transform:rotate(-45deg)}
 
+/* Fiókmenü.
+   A fejléc (z-index 100) a fiók FÖLÖTT van — benne a logó és a bezáró X —,
+   ezért a lista nem indulhat 0-ról: a --nav-h sávot ki kell hagyni fölül.
+   E nélkül alacsony képernyőn (beágyazott Instagram/Messenger böngésző, ~620px)
+   a függőleges középre igazítás az első tételt pont a fejléc alá tolta.
+   A `safe center` az a változat, ami túlcsordulásnál NEM vágja le a tetejét —
+   a sima `center` kicsúsztatja a viewportból, és görgetéssel sem érhető el.
+   A 100dvh azért kell, mert a beágyazott böngészők eszköztára eltakarja a
+   `position:fixed; inset:0` alját. */
 .drawer{
-  position:fixed;inset:0;z-index:99;background:var(--ink-2);
-  display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 var(--gap);
+  position:fixed;top:0;left:0;right:0;z-index:99;background:var(--ink-2);
+  height:100vh;height:100dvh;
+  overflow-y:auto;overscroll-behavior:contain;
+  display:flex;flex-direction:column;gap:6px;
+  justify-content:center;justify-content:safe center;
+  padding:calc(var(--nav-h) + 12px) var(--gap) calc(24px + env(safe-area-inset-bottom,0px));
   transform:translateY(-102%);transition:transform .6s var(--ease);
 }
 .drawer.open{transform:none}
+/* Tulcsordulaskor a flex-oszlop OSSZENYOMNA a gyerekeit (alap flex-shrink:1),
+   igy a nyelvvalto gombjai 40px ala mentek 320x520-on. Inkabb gorogjon a doboz. */
+.drawer > *{flex-shrink:0}
 .drawer a{font-family:'Anton',sans-serif;font-size:clamp(30px,9vw,52px);text-transform:uppercase;letter-spacing:.01em;color:var(--cream);padding:8px 0;border-bottom:1px solid var(--hair)}
 .drawer a:last-of-type{border-bottom:0}
 .drawer .dcall{margin-top:26px;color:var(--gold);font-family:'Anton',sans-serif;font-size:30px}
 .drawer .langs{display:flex;align-self:flex-start;margin-top:22px;border-color:rgba(232,178,58,.4)}
 .drawer .langs button{padding:12px 20px;font-size:12px}
+/* Alacsony képernyőn (beágyazott böngésző, fekvő telefon) a menü elférjen
+   görgetés nélkül. Magasságra szűrünk, nem szélességre: a baj nem attól van,
+   hogy keskeny a készülék, hanem hogy alacsony a látható terület. */
+@media(max-height:700px){
+  .drawer{gap:0}
+  .drawer a{font-size:clamp(23px,6.4vw,32px);padding:9px 0}
+  .drawer .dcall{font-size:24px;margin-top:16px}
+  .drawer .langs{margin-top:14px}
+  /* a nyelvvalto gombjait NEM kicsinyitjuk: 40px ala menne a koppintasi felulet */
+}
 
 /* ============================================================
    HERO — split
