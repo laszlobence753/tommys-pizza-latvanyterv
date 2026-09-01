@@ -1,0 +1,40 @@
+# Tommy's Pizza & Food — Netlify konfiguráció
+#
+# A repó gyökere MAGA az oldal (nincs build-lépés): a generátorok a
+# fejlesztői gépen futnak, ide már kész HTML kerül. Ezért publish = "."
+# és nincs build parancs.
+#
+# A GitHub Pages ettől függetlenül tovább működik ugyanerről az ágról —
+# ezt a fájlt figyelmen kívül hagyja.
+
+[build]
+  publish = "."
+  command = ""
+
+# ── Gyorsítótárazás ────────────────────────────────────────────────
+# A képek fájlneve NEM tartalmaz tartalom-lenyomatot (pl. mm-g1-220.webp),
+# és a build-images.mjs újrageneráláskor ugyanezt a nevet írja felül.
+# Ezért NEM adhatunk "immutable" évet: ha a kliens új fotót küld, a
+# visszatérő látogató a régit látná. Egy nap jó egyensúly.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# A HTML mindig ellenőrizze magát — ártól étlapig minden benne van,
+# elavult másolat itt a legdrágább.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ── Alap biztonsági fejlécek ──────────────────────────────────────
+# Szándékosan NINCS Content-Security-Policy: a Google Maps beágyazás és a
+# Google Fonts miatt egy szűk CSP eltörné a térképet és a betűket. Ha
+# később mégis kell, előbb a térképet és a fontokat kell engedélyezni.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
