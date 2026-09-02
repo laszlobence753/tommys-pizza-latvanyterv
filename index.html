@@ -11,6 +11,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
 <meta name="theme-color" content="#100C0D">
 
+<!-- Ugyanez a tartalom HÁROM hosztnéven él (sajat domain, netlify.app,
+     github.io). Canonical nélkül egymás ellen versenyeznének a keresőben,
+     és nem biztos, hogy a saját domain nyerne. -->
+<link rel="canonical" href="https://tommyspizza.ro/">
+
 <!-- megosztás: Messenger / Facebook / Instagram-bio -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tommy's Pizza &amp; Food">
@@ -34,6 +39,12 @@
     "@context": "https://schema.org",
     "@type": "Restaurant",
     "name": "Tommy's Pizza & Food",
+    "alternateName": [
+      "Tommys Pizza & Food",
+      "Tommy's Pizza",
+      "Tommys Pizza",
+      "Tommys"
+    ],
     "description": "Pizzák, brutál burgerek és bőséges menük Székelykeresztúron. Elvitelre és házhozszállításra, minden nap 13:00-tól. Berde Mózes u. · 0759 614 325",
     "image": [
       "https://tommyspizza.ro/assets/og-tommys.jpg"
@@ -90,6 +101,15 @@
     ],
     "acceptsReservations": false,
     "url": "https://tommyspizza.ro",
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.2829755,
+        "longitude": 25.0182238
+      },
+      "geoRadius": "20000"
+    },
     "hasDeliveryMethod": [
       "http://purl.org/goodrelations/v1#DeliveryModePickUp",
       "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"

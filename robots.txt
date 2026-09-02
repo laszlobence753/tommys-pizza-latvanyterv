@@ -1,0 +1,5 @@
+# Tommy's Pizza & Food — generálva: _scrape/build-seo.mjs, KÉZZEL NE SZERKESZD
+User-agent: *
+Allow: /
+
+Sitemap: https://tommyspizza.ro/sitemap.xml
