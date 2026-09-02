@@ -499,6 +499,16 @@
                 "price": 36,
                 "priceCurrency": "RON"
               }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Crispy Burger",
+              "description": "buci, burger szósz, jégsaláta, crispy csirkemell, cheddar, paradicsom, uborka",
+              "offers": {
+                "@type": "Offer",
+                "price": 30,
+                "priceCurrency": "RON"
+              }
             }
           ]
         },
@@ -1367,7 +1377,7 @@ footer li a:hover{color:var(--gold)}
     </a>
     <a class="cat" href="#burgerek" data-rv data-rv-d="1">
       <img loading="lazy" decoding="async" src="assets/w/fb-hi-fb-16-440.webp" alt="Burger" data-src-orig="assets/fb/hi/fb-16.jpg" srcset="assets/w/fb-hi-fb-16-360.webp 360w, assets/w/fb-hi-fb-16-440.webp 440w, assets/w/fb-hi-fb-16-720.webp 720w, assets/w/fb-hi-fb-16-880.webp 880w" sizes="(min-width:1200px) 420px, (min-width:900px) 30vw, 92vw">
-      <div class="cap"><div><b data-i18n="cat.2t">Burgerek</b><small data-i18n="cat.2s">Friss, ropogós ízbombák</small></div><span data-i18n="price.from.burger">33 lej-től</span></div>
+      <div class="cap"><div><b data-i18n="cat.2t">Burgerek</b><small data-i18n="cat.2s">Friss, ropogós ízbombák</small></div><span data-i18n="price.from.burger">30 lej-től</span></div>
     </a>
     <a class="cat" href="#menuk" data-rv data-rv-d="2">
       <img loading="lazy" decoding="async" src="assets/w/fb-hi-fb-14-440.webp" alt="Menü" data-src-orig="assets/fb/hi/fb-14.jpg" srcset="assets/w/fb-hi-fb-14-360.webp 360w, assets/w/fb-hi-fb-14-440.webp 440w, assets/w/fb-hi-fb-14-720.webp 720w, assets/w/fb-hi-fb-14-880.webp 880w" sizes="(min-width:1200px) 420px, (min-width:900px) 30vw, 92vw">
@@ -1493,7 +1503,7 @@ footer li a:hover{color:var(--gold)}
 <!-- GEN:ROWS-burger:START — generálva: _scrape/build-menu.mjs · forrás: data/menu.json · KÉZZEL NE SZERKESZD -->
   <div class="sh" data-rv>
     <div class="l"><span class="idx">03</span><h2 data-i18n="bg.h">Brutál burgerek</h2></div>
-    <div class="r" data-i18n="bg.r">5-féle · 33 lejtől</div>
+    <div class="r" data-i18n="bg.r">5-féle · 30 lejtől</div>
   </div>
   <p class="secnote" data-i18n="bg.note">Menüben szalmakrumplival és burger szósszal.</p>
   <div class="menu-grid">
@@ -1504,7 +1514,7 @@ footer li a:hover{color:var(--gold)}
     </div>
     <div>
       <div class="mrow" data-rv><span class="n">04</span><div><div class="nm"><strong data-i18n="bg.bbq.n">BBQ Burger</strong></div><em data-i18n="bg.bbq.d">buci · bbq szósz · coleslaw saláta · dupla smash húspogácsa · olvadó cheddar · pirított bacon · uborka</em></div><span class="p"><b>36<span data-i18n="cur">&nbsp;lej</span></b><i class="alt" data-i18n="bg.bbq.m">menüben 42 lej</i></span></div>
-      <div class="mrow" data-rv><span class="n">05</span><div><div class="nm"><strong data-i18n="bg.crispy.n">Crispy Burger</strong></div><em class="wait" data-i18n="bg.crispy.d">összetevők és ár egyeztetés alatt</em></div><span class="p"><b class="tba"><span data-i18n="price.tba">—&nbsp;lej</span></b></span></div>
+      <div class="mrow" data-rv><span class="n">05</span><div><div class="nm"><strong data-i18n="bg.crispy.n">Crispy Burger</strong></div><em data-i18n="bg.crispy.d">buci · burger szósz · jégsaláta · crispy csirkemell · cheddar · paradicsom · uborka</em></div><span class="p"><b>30<span data-i18n="cur">&nbsp;lej</span></b><i class="alt" data-i18n="bg.crispy.m">menüben 37 lej</i></span></div>
     </div>
   </div>
 <!-- GEN:ROWS-burger:END -->
@@ -1540,7 +1550,7 @@ footer li a:hover{color:var(--gold)}
 <!-- GEN:DELIVERY-SECTION:START — generálva: _scrape/ · KÉZZEL NE SZERKESZD -->
 <section class="sec shell" id="kiszallitas">
   <div class="sh" data-rv>
-    <div class="l"><span class="idx">05</span><h2 data-i18n="ks.h">Kiszállítás</h2><span class="soon" data-i18n="soon.data">adat érkezik</span></div>
+    <div class="l"><span class="idx">05</span><h2 data-i18n="ks.h">Kiszállítás</h2></div>
     <div class="r" data-i18n="ks.r">Székelykeresztúr és 20 km-es körzete</div>
   </div>
   <div class="dfacts">
@@ -1551,8 +1561,8 @@ footer li a:hover{color:var(--gold)}
     </div>
     <div class="df" data-rv data-rv-d="1">
       <span class="dl" data-i18n="ks.min">Minimum rendelés</span>
-      <b class="dv empty">—</b>
-      <small class="dn wait" data-i18n="ks.wait">egyeztetés alatt</small>
+      <b class="dv free" data-i18n="ks.min.u.free">Nincs</b>
+      
     </div>
     <div class="df" data-rv data-rv-d="2">
       <span class="dl" data-i18n="ks.when">Kiszállítás</span>
@@ -1815,10 +1825,10 @@ const DICT = {
     'bg.bbq.d':'chiflă · sos BBQ · salată coleslaw · chiftele smash duble · cheddar topit · bacon prăjit · castraveți',
     'bg.bbq.m':'în meniu 42 lei',
     'bg.crispy.n':'Crispy Burger',
-    'bg.crispy.d':'ingrediente și preț în curs de clarificare',
-    'price.tba':'—&nbsp;lei',
+    'bg.crispy.d':'chiflă · sos de burger · salată iceberg · piept de pui crispy · cheddar · roșii · castraveți',
+    'bg.crispy.m':'în meniu 37 lei',
     'bg.h':'Burgeri pe bune',
-    'bg.r':'5 sortimente · de la 33 lei',
+    'bg.r':'5 sortimente · de la 30 lei',
     'bg.note':'În meniu cu cartofi pai și sos de burger.',
     'mn.gyros.n':'Platou gyros',
     'mn.gyros.d':'cartofi prăjiți · piept de pui · varză · ceapă roșie · castraveți · roșii · sos de gyros',
@@ -1838,7 +1848,7 @@ const DICT = {
     'mn.r':'7 sortimente · de la 25 lei',
     'mn.note':'Orice meniu poate fi cerut și cu cartofi steak. Porție separată 10 lei.',
     'price.from.pizza':'de la 22 lei',
-    'price.from.burger':'de la 33 lei',
+    'price.from.burger':'de la 30 lei',
     'price.from.menu':'de la 25 lei',
     /* GEN:MENU-I18N:END */
     /* GEN:DELIVERY-I18N:START — generálva: _scrape/ */
@@ -1853,9 +1863,8 @@ const DICT = {
     'ks.zonep':'Cristuru Secuiesc și zona de <b>20 km</b>',
     'ks.hours':'Zilnic de la ora 13. Timpul estimat îl stabilim telefonic.',
     'ks.order':'Comandă telefonică',
-    'soon.data':'date în curând',
-    'ks.wait':'în curs de clarificare',
     'ks.fee.u.free':'Gratuit',
+    'ks.min.u.free':'Fără',
     /* GEN:DELIVERY-I18N:END */
     'ga.h':'Galerie','ga.r':'Fotografii proprii',
     'fi.h':'Unde ne găsești','fi.r':'Str. Berde Mózes · Cristuru Secuiesc',
