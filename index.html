@@ -908,7 +908,11 @@ section[id],header[id]{scroll-margin-top:calc(var(--nav-h) + 14px)}
 .stats b{display:block;font-family:'Anton',sans-serif;font-size:clamp(24px,3vw,36px);color:var(--gold);line-height:1;letter-spacing:.01em;font-variant-numeric:lining-nums tabular-nums}
 .stats span{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:800;margin-top:9px}
 .concept .ph{position:relative;overflow:hidden;border:1px solid rgba(232,178,58,.24)}
-.concept .ph img{width:100%;height:clamp(300px,38vw,480px);object-fit:cover}
+.concept .ph > img{width:100%;height:clamp(300px,38vw,480px);object-fit:cover}
+/* Mozaik: a kliens 2026-09-02-i stúdiófotói, 3×2 kockában (Tamás kérése).
+   1 px arany hajszálvonal választja el a kockákat — ugyanaz a szín, mint a keret. */
+.concept .phgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(232,178,58,.24)}
+.concept .phgrid img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
 .concept .ph .lb{position:absolute;left:0;bottom:0;background:var(--bordo);color:#fff;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;padding:10px 18px}
 
 /* ============================================================
@@ -947,7 +951,7 @@ section[id],header[id]{scroll-margin-top:calc(var(--nav-h) + 14px)}
    ============================================================ */
 .gal{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
 .gal a{position:relative;overflow:hidden;background:#000;aspect-ratio:1;display:block}
-.gal a:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.gal a:nth-child(1){grid-column:span 2;grid-row:span 2}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease),opacity .5s}
 .gal a:hover img{transform:scale(1.07)}
 /* nagyító-jel hoveren — jelzi, hogy a kép kattintható */
@@ -1059,7 +1063,7 @@ footer li a:hover{color:var(--gold)}
 @media(max-width:1080px){
   .hero .grid{grid-template-columns:1fr .9fr}
   .concept{grid-template-columns:1fr}
-  .concept .ph img{height:300px}
+  .concept .ph > img{height:300px}
   .find{grid-template-columns:1fr}
   .find .m{min-height:300px}
   .fgrid{grid-template-columns:1fr 1fr}
@@ -1113,6 +1117,11 @@ footer li a:hover{color:var(--gold)}
 .mrow .p i{font-style:normal;font-family:'Figtree',sans-serif;font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.03em;font-variant-numeric:lining-nums tabular-nums}
 /* grammsúly a név mellett — halkabb, mint a címkék, de olvasható marad */
 .mrow .nm .gr{font-family:'Figtree',sans-serif;font-size:12px;font-weight:700;color:var(--muted-2);letter-spacing:.04em;font-variant-numeric:lining-nums tabular-nums}
+/* Még nincs ár: ugyanaz a halk „—", mint a kiszállítás-kártyák .dv.empty-je.
+   Fontos, hogy tompa legyen — különben aranyban virít egy nem létező ár. */
+.mrow .p b.tba{color:var(--gold-lo);opacity:.75;letter-spacing:.08em}
+/* Még nincs összetevő-lista: dőlt és halkabb, hogy ne olvasódjon leírásnak. */
+.mrow em.wait{font-style:italic;color:var(--muted-2);opacity:.8}
 
 /* ── A pizza-lista belső görgetése ──────────────────────────────
    23 tétel mobilon 3,6 képernyőnyi volt, az egész oldal negyede.
@@ -1371,8 +1380,15 @@ footer li a:hover{color:var(--gold)}
         <div><b data-count="4800" data-sep="1">4800</b><span data-i18n="stat.3">Követő a Facebookon</span></div>
       </div>
     </div>
-    <div class="ph" data-rv data-rv-d="2">
-      <img loading="lazy" decoding="async" src="assets/w/maps-gm-03-580.webp" alt="Készülő pizzák a konyhában" data-src-orig="assets/maps/gm-03.jpg" srcset="assets/w/maps-gm-03-400.webp 400w, assets/w/maps-gm-03-580.webp 580w, assets/w/maps-gm-03-840.webp 840w, assets/w/maps-gm-03-1160.webp 1160w" sizes="(min-width:1000px) 570px, 92vw">
+    <div class="ph mosaic" data-rv data-rv-d="2">
+      <div class="phgrid">
+        <img loading="lazy" decoding="async" src="assets/w/pizza-szalami-gomba-280.webp" alt="Szalámis-gombás pizza" data-src-orig="assets/pizza/szalami-gomba.jpg" srcset="assets/w/pizza-szalami-gomba-200.webp 200w, assets/w/pizza-szalami-gomba-280.webp 280w, assets/w/pizza-szalami-gomba-400.webp 400w, assets/w/pizza-szalami-gomba-580.webp 580w" sizes="(min-width:1000px) 190px, 31vw">
+        <img loading="lazy" decoding="async" src="assets/w/pizza-sonka-280.webp" alt="Sonkás pizza" data-src-orig="assets/pizza/sonka.jpg" srcset="assets/w/pizza-sonka-200.webp 200w, assets/w/pizza-sonka-280.webp 280w, assets/w/pizza-sonka-400.webp 400w, assets/w/pizza-sonka-580.webp 580w" sizes="(min-width:1000px) 190px, 31vw">
+        <img loading="lazy" decoding="async" src="assets/w/pizza-kolbasz-bab-280.webp" alt="Kolbászos pizza kukoricával és babbal" data-src-orig="assets/pizza/kolbasz-bab.jpg" srcset="assets/w/pizza-kolbasz-bab-200.webp 200w, assets/w/pizza-kolbasz-bab-280.webp 280w, assets/w/pizza-kolbasz-bab-400.webp 400w, assets/w/pizza-kolbasz-bab-580.webp 580w" sizes="(min-width:1000px) 190px, 31vw">
+        <img loading="lazy" decoding="async" src="assets/w/pizza-olivas-280.webp" alt="Pizza olívabogyóval és paprikával" data-src-orig="assets/pizza/olivas.jpg" srcset="assets/w/pizza-olivas-200.webp 200w, assets/w/pizza-olivas-280.webp 280w, assets/w/pizza-olivas-400.webp 400w, assets/w/pizza-olivas-580.webp 580w" sizes="(min-width:1000px) 190px, 31vw">
+        <img loading="lazy" decoding="async" src="assets/w/pizza-paradicsomos-280.webp" alt="Pizza friss paradicsomkarikákkal" data-src-orig="assets/pizza/paradicsomos.jpg" srcset="assets/w/pizza-paradicsomos-200.webp 200w, assets/w/pizza-paradicsomos-280.webp 280w, assets/w/pizza-paradicsomos-400.webp 400w, assets/w/pizza-paradicsomos-580.webp 580w" sizes="(min-width:1000px) 190px, 31vw">
+        <img loading="lazy" decoding="async" src="assets/w/pizza-csirkes-280.webp" alt="Csirkés pizza fehér öntettel" data-src-orig="assets/pizza/csirkes.jpg" srcset="assets/w/pizza-csirkes-200.webp 200w, assets/w/pizza-csirkes-280.webp 280w, assets/w/pizza-csirkes-400.webp 400w, assets/w/pizza-csirkes-580.webp 580w" sizes="(min-width:1000px) 190px, 31vw">
+      </div>
       <div class="lb" data-i18n="con.lb">A konyhából</div>
     </div>
   </div>
@@ -1460,17 +1476,18 @@ footer li a:hover{color:var(--gold)}
 <!-- GEN:ROWS-burger:START — generálva: _scrape/build-menu.mjs · forrás: data/menu.json · KÉZZEL NE SZERKESZD -->
   <div class="sh" data-rv>
     <div class="l"><span class="idx">03</span><h2 data-i18n="bg.h">Brutál burgerek</h2></div>
-    <div class="r" data-i18n="bg.r">4-féle · 33 lejtől</div>
+    <div class="r" data-i18n="bg.r">5-féle · 33 lejtől</div>
   </div>
   <p class="secnote" data-i18n="bg.note">Menüben szalmakrumplival és burger szósszal.</p>
   <div class="menu-grid">
     <div>
       <div class="mrow" data-rv><span class="n">01</span><div><div class="nm"><strong data-i18n="bg.classic.n">Classic Burger</strong></div><em data-i18n="bg.classic.d">buci · burger szósz · jégsaláta · dupla smash húspogácsa · olvadó cheddar · paradicsom · uborka</em></div><span class="p"><b>33<span data-i18n="cur">&nbsp;lej</span></b><i class="alt" data-i18n="bg.classic.m">menüben 40 lej</i></span></div>
       <div class="mrow" data-rv><span class="n">02</span><div><div class="nm"><strong data-i18n="bg.tommys.n">Tommy's Burger</strong></div><em data-i18n="bg.tommys.d">buci · burger szósz · jégsaláta · dupla smash húspogácsa · olvadó cheddar · pirított hagyma · uborka</em></div><span class="p"><b>35<span data-i18n="cur">&nbsp;lej</span></b><i class="alt" data-i18n="bg.tommys.m">menüben 40 lej</i></span></div>
+      <div class="mrow" data-rv><span class="n">03</span><div><div class="nm"><strong data-i18n="bg.jalapeno.n">Jalapeno Burger</strong><b class="tag hot" data-i18n="tag.hot">csípős</b></div><em data-i18n="bg.jalapeno.d">buci · burger szósz · dupla smash húspogácsa · olvadó cheddar · pirított bacon · jalapeno</em></div><span class="p"><b>34<span data-i18n="cur">&nbsp;lej</span></b><i class="alt" data-i18n="bg.jalapeno.m">menüben 39 lej</i></span></div>
     </div>
     <div>
-      <div class="mrow" data-rv><span class="n">03</span><div><div class="nm"><strong data-i18n="bg.jalapeno.n">Jalapeno Burger</strong><b class="tag hot" data-i18n="tag.hot">csípős</b></div><em data-i18n="bg.jalapeno.d">buci · burger szósz · dupla smash húspogácsa · olvadó cheddar · pirított bacon · jalapeno</em></div><span class="p"><b>34<span data-i18n="cur">&nbsp;lej</span></b><i class="alt" data-i18n="bg.jalapeno.m">menüben 39 lej</i></span></div>
       <div class="mrow" data-rv><span class="n">04</span><div><div class="nm"><strong data-i18n="bg.bbq.n">BBQ Burger</strong></div><em data-i18n="bg.bbq.d">buci · bbq szósz · coleslaw saláta · dupla smash húspogácsa · olvadó cheddar · pirított bacon · uborka</em></div><span class="p"><b>36<span data-i18n="cur">&nbsp;lej</span></b><i class="alt" data-i18n="bg.bbq.m">menüben 42 lej</i></span></div>
+      <div class="mrow" data-rv><span class="n">05</span><div><div class="nm"><strong data-i18n="bg.crispy.n">Crispy Burger</strong></div><em class="wait" data-i18n="bg.crispy.d">összetevők és ár egyeztetés alatt</em></div><span class="p"><b class="tba"><span data-i18n="price.tba">—&nbsp;lej</span></b></span></div>
     </div>
   </div>
 <!-- GEN:ROWS-burger:END -->
@@ -1507,7 +1524,7 @@ footer li a:hover{color:var(--gold)}
 <section class="sec shell" id="kiszallitas">
   <div class="sh" data-rv>
     <div class="l"><span class="idx">05</span><h2 data-i18n="ks.h">Kiszállítás</h2><span class="soon" data-i18n="soon.data">adat érkezik</span></div>
-    <div class="r" data-i18n="ks.r">Székelykeresztúr és a környező falvak</div>
+    <div class="r" data-i18n="ks.r">Székelykeresztúr és 20 km-es körzete</div>
   </div>
   <div class="dfacts">
     <div class="df" data-rv>
@@ -1529,8 +1546,7 @@ footer li a:hover{color:var(--gold)}
   <div class="dzone" data-rv>
     <div>
       <h4 data-i18n="ks.zone">Hova szállítunk</h4>
-      <p class="dzp" data-i18n="ks.zonep">Székelykeresztúr és a környező falvak</p>
-      <p class="dzw" data-i18n="ks.wait">egyeztetés alatt</p>
+      <p class="dzp" data-i18n="ks.zonep">Székelykeresztúr és <b>20 km</b>-es körzete</p>
     </div>
     <a class="dcall" href="tel:+40759614325">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
@@ -1548,14 +1564,15 @@ footer li a:hover{color:var(--gold)}
     <div class="r" data-i18n="ga.r">Saját fotók</div>
   </div>
   <div class="gal" data-rv>
-    <a href="assets/w/maps-gm-02-1400.webp" data-href-orig="assets/maps/gm-02.jpg"><img loading="lazy" decoding="async" src="assets/w/maps-gm-02-220.webp" alt="Pizza közelről" data-src-orig="assets/maps/gm-02.jpg" srcset="assets/w/maps-gm-02-180.webp 180w, assets/w/maps-gm-02-220.webp 220w, assets/w/maps-gm-02-360.webp 360w, assets/w/maps-gm-02-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
-    <a href="assets/w/maps-gm-05-1400.webp" data-href-orig="assets/maps/gm-05.jpg"><img loading="lazy" decoding="async" src="assets/w/maps-gm-05-220.webp" alt="Két pizza dobozban" data-src-orig="assets/maps/gm-05.jpg" srcset="assets/w/maps-gm-05-180.webp 180w, assets/w/maps-gm-05-220.webp 220w, assets/w/maps-gm-05-360.webp 360w, assets/w/maps-gm-05-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
-    <a href="assets/w/mm-g1-1400.webp" data-href-orig="assets/mm-g1.jpg"><img loading="lazy" decoding="async" src="assets/w/mm-g1-220.webp" alt="Sonkás pizza" data-src-orig="assets/mm-g1.jpg" srcset="assets/w/mm-g1-180.webp 180w, assets/w/mm-g1-220.webp 220w, assets/w/mm-g1-360.webp 360w, assets/w/mm-g1-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
-    <a href="assets/w/maps-gm-04-1400.webp" data-href-orig="assets/maps/gm-04.jpg"><img loading="lazy" decoding="async" src="assets/w/maps-gm-04-220.webp" alt="Pizza" data-src-orig="assets/maps/gm-04.jpg" srcset="assets/w/maps-gm-04-180.webp 180w, assets/w/maps-gm-04-220.webp 220w, assets/w/maps-gm-04-360.webp 360w, assets/w/maps-gm-04-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
-    <a href="assets/w/mm-g4-1400.webp" data-href-orig="assets/mm-g4.jpg"><img loading="lazy" decoding="async" src="assets/w/mm-g4-220.webp" alt="Pizzák dobozban" data-src-orig="assets/mm-g4.jpg" srcset="assets/w/mm-g4-180.webp 180w, assets/w/mm-g4-220.webp 220w, assets/w/mm-g4-360.webp 360w, assets/w/mm-g4-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
-    <a href="assets/w/fb-hi-fb-01-1400.webp" data-href-orig="assets/fb/hi/fb-01.jpg"><img loading="lazy" decoding="async" src="assets/w/fb-hi-fb-01-220.webp" alt="Menü" data-src-orig="assets/fb/hi/fb-01.jpg" srcset="assets/w/fb-hi-fb-01-180.webp 180w, assets/w/fb-hi-fb-01-220.webp 220w, assets/w/fb-hi-fb-01-360.webp 360w, assets/w/fb-hi-fb-01-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
-    <a href="assets/w/maps-gm-03-1400.webp" data-href-orig="assets/maps/gm-03.jpg"><img loading="lazy" decoding="async" src="assets/w/maps-gm-03-220.webp" alt="Készülő pizzák" data-src-orig="assets/maps/gm-03.jpg" srcset="assets/w/maps-gm-03-180.webp 180w, assets/w/maps-gm-03-220.webp 220w, assets/w/maps-gm-03-360.webp 360w, assets/w/maps-gm-03-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
-    <a href="assets/w/pizza-sonkas-1400.webp" data-href-orig="assets/pizza-sonkas.jpg"><img loading="lazy" decoding="async" src="assets/w/pizza-sonkas-220.webp" alt="Rakott pizza" data-src-orig="assets/pizza-sonkas.jpg" srcset="assets/w/pizza-sonkas-180.webp 180w, assets/w/pizza-sonkas-220.webp 220w, assets/w/pizza-sonkas-360.webp 360w, assets/w/pizza-sonkas-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
+    <a href="assets/w/galeria-pizza-gombas-1400.webp" data-href-orig="assets/galeria/pizza-gombas.jpg"><img loading="lazy" decoding="async" src="assets/w/galeria-pizza-gombas-440.webp" alt="Gombás pizza" data-src-orig="assets/galeria/pizza-gombas.jpg" srcset="assets/w/galeria-pizza-gombas-360.webp 360w, assets/w/galeria-pizza-gombas-440.webp 440w, assets/w/galeria-pizza-gombas-720.webp 720w, assets/w/galeria-pizza-gombas-900.webp 900w, assets/w/galeria-pizza-gombas-1250.webp 1250w" sizes="(min-width:1200px) 420px, (min-width:900px) 30vw, 90vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
+    <a href="assets/w/galeria-pizza-dobozban-1400.webp" data-href-orig="assets/galeria/pizza-dobozban.jpg"><img loading="lazy" decoding="async" src="assets/w/galeria-pizza-dobozban-220.webp" alt="Pizza dobozban, elvitelre" data-src-orig="assets/galeria/pizza-dobozban.jpg" srcset="assets/w/galeria-pizza-dobozban-180.webp 180w, assets/w/galeria-pizza-dobozban-220.webp 220w, assets/w/galeria-pizza-dobozban-360.webp 360w, assets/w/galeria-pizza-dobozban-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
+    <a href="assets/w/galeria-menu-csulok-1400.webp" data-href-orig="assets/galeria/menu-csulok.jpg"><img loading="lazy" decoding="async" src="assets/w/galeria-menu-csulok-220.webp" alt="Sült csülök hasábburgonyával" data-src-orig="assets/galeria/menu-csulok.jpg" srcset="assets/w/galeria-menu-csulok-180.webp 180w, assets/w/galeria-menu-csulok-220.webp 220w, assets/w/galeria-menu-csulok-360.webp 360w, assets/w/galeria-menu-csulok-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
+    <a href="assets/w/galeria-pizza-sonka-kukorica-1400.webp" data-href-orig="assets/galeria/pizza-sonka-kukorica.jpg"><img loading="lazy" decoding="async" src="assets/w/pizza-sonka-kukorica-220.webp" alt="Sonkás-kukoricás pizza" data-src-orig="assets/pizza/sonka-kukorica.jpg" srcset="assets/w/pizza-sonka-kukorica-180.webp 180w, assets/w/pizza-sonka-kukorica-220.webp 220w, assets/w/pizza-sonka-kukorica-360.webp 360w, assets/w/pizza-sonka-kukorica-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
+    <a href="assets/w/galeria-menu-sajtos-csirkemell-1400.webp" data-href-orig="assets/galeria/menu-sajtos-csirkemell.jpg"><img loading="lazy" decoding="async" src="assets/w/galeria-menu-sajtos-csirkemell-220.webp" alt="Sajttal töltött rántott csirkemell, reszelt sajttal" data-src-orig="assets/galeria/menu-sajtos-csirkemell.jpg" srcset="assets/w/galeria-menu-sajtos-csirkemell-180.webp 180w, assets/w/galeria-menu-sajtos-csirkemell-220.webp 220w, assets/w/galeria-menu-sajtos-csirkemell-360.webp 360w, assets/w/galeria-menu-sajtos-csirkemell-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
+    <a href="assets/w/galeria-pizza-dobozban-2-1400.webp" data-href-orig="assets/galeria/pizza-dobozban-2.jpg"><img loading="lazy" decoding="async" src="assets/w/galeria-pizza-dobozban-2-220.webp" alt="Frissen sült pizza a dobozban" data-src-orig="assets/galeria/pizza-dobozban-2.jpg" srcset="assets/w/galeria-pizza-dobozban-2-180.webp 180w, assets/w/galeria-pizza-dobozban-2-220.webp 220w, assets/w/galeria-pizza-dobozban-2-360.webp 360w, assets/w/galeria-pizza-dobozban-2-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
+    <a href="assets/w/galeria-menu-rantott-sajt-1400.webp" data-href-orig="assets/galeria/menu-rantott-sajt.jpg"><img loading="lazy" decoding="async" src="assets/w/galeria-menu-rantott-sajt-220.webp" alt="Rántott sajt hasábburgonyával" data-src-orig="assets/galeria/menu-rantott-sajt.jpg" srcset="assets/w/galeria-menu-rantott-sajt-180.webp 180w, assets/w/galeria-menu-rantott-sajt-220.webp 220w, assets/w/galeria-menu-rantott-sajt-360.webp 360w, assets/w/galeria-menu-rantott-sajt-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
+    <a href="assets/w/galeria-pizza-paradicsomos-1400.webp" data-href-orig="assets/galeria/pizza-paradicsomos.jpg"><img loading="lazy" decoding="async" src="assets/w/pizza-paradicsomos-220.webp" alt="Pizza friss paradicsomkarikákkal" data-src-orig="assets/pizza/paradicsomos.jpg" srcset="assets/w/pizza-paradicsomos-180.webp 180w, assets/w/pizza-paradicsomos-220.webp 220w, assets/w/pizza-paradicsomos-360.webp 360w, assets/w/pizza-paradicsomos-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
+    <a href="assets/w/galeria-menu-becsi-1400.webp" data-href-orig="assets/galeria/menu-becsi.jpg"><img loading="lazy" decoding="async" src="assets/w/galeria-menu-becsi-220.webp" alt="Rántott hús hasábburgonyával és savanyúsággal" data-src-orig="assets/galeria/menu-becsi.jpg" srcset="assets/w/galeria-menu-becsi-180.webp 180w, assets/w/galeria-menu-becsi-220.webp 220w, assets/w/galeria-menu-becsi-360.webp 360w, assets/w/galeria-menu-becsi-440.webp 440w" sizes="(min-width:1200px) 210px, (min-width:900px) 15vw, 29vw"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="M15.6 15.6 20 20M11 8.6v4.8M8.6 11h4.8"/></svg></span></a>
   </div>
 </section>
 
@@ -1777,8 +1794,11 @@ const DICT = {
     'bg.bbq.n':'BBQ Burger',
     'bg.bbq.d':'chiflă · sos BBQ · salată coleslaw · chiftele smash duble · cheddar topit · bacon prăjit · castraveți',
     'bg.bbq.m':'în meniu 42 lei',
+    'bg.crispy.n':'Crispy Burger',
+    'bg.crispy.d':'ingrediente și preț în curs de clarificare',
+    'price.tba':'—&nbsp;lei',
     'bg.h':'Burgeri pe bune',
-    'bg.r':'4 sortimente · de la 33 lei',
+    'bg.r':'5 sortimente · de la 33 lei',
     'bg.note':'În meniu cu cartofi pai și sos de burger.',
     'mn.gyros.n':'Platou gyros',
     'mn.gyros.d':'cartofi prăjiți · piept de pui · varză · ceapă roșie · castraveți · roșii · sos de gyros',
@@ -1805,12 +1825,12 @@ const DICT = {
     'ks.when.u2':'',
     'nav.deliv':'Livrare',
     'ks.h':'Livrare la domiciliu',
-    'ks.r':'Cristuru Secuiesc și satele din jur',
+    'ks.r':'Cristuru Secuiesc și zona de 20 km',
     'ks.fee':'Taxă de livrare',
     'ks.min':'Comandă minimă',
     'ks.when':'Livrăm de la ora',
     'ks.zone':'Unde livrăm',
-    'ks.zonep':'Cristuru Secuiesc și satele din jur',
+    'ks.zonep':'Cristuru Secuiesc și zona de <b>20 km</b>',
     'ks.hours':'Zilnic de la ora 13. Timpul estimat îl stabilim telefonic.',
     'ks.order':'Comandă telefonică',
     'soon.data':'date în curând',
