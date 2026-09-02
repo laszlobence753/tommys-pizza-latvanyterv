@@ -1,0 +1,24 @@
+# Tommy's Pizza & Food — a netlify.toml fejléc-szabályainak megfelelője
+# Cloudflare Pages ezt olvassa; a Netlify is elfogadja, és mivel a tartalom
+# azonos a netlify.toml-lal, a kettő nem ütközik.
+# KÉZZEL SZERKESZTHETŐ — ez nem generált fájl.
+
+# A képek fájlneve NEM tartalmaz tartalom-lenyomatot (pl. pizza-sonka-280.webp),
+# és a build-images.mjs újrageneráláskor ugyanezt a nevet írja felül. Ezért NEM
+# adhatunk "immutable" évet: ha a kliens új fotót küld, a visszatérő látogató a
+# régit látná. Egy nap jó egyensúly.
+/assets/*
+  Cache-Control: public, max-age=86400
+
+# A HTML mindig ellenőrizze magát — ártól étlapig minden benne van, elavult
+# másolat itt a legdrágább.
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Alap biztonsági fejlécek.
+# Szándékosan NINCS Content-Security-Policy: a Google Maps beágyazás és a
+# Google Fonts miatt egy szűk CSP eltörné a térképet és a betűket.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
