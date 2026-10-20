@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Adatvédelem — Tommy's Pizza &amp; Food</title>
+<meta name="description" content="Adatkezelési tájékoztató — Tommy's Pizza &amp; Food, THOMAS CENTER SRL, Székelykeresztúr.">
+<link rel="canonical" href="https://tommyspizza.ro/adatvedelem.html">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<meta name="theme-color" content="#100C0D">
+<link rel="stylesheet" href="assets/fonts.css">
+<!--
+  Adatkezelési tájékoztató (GDPR) — KÉZZEL SZERKESZTHETŐ, nem generált.
+  Pontosan azt írja le, amit az oldal TÉNYLEG csinál (2026-10-20):
+  - nincs süti, nincs statisztika, nincs űrlap;
+  - a betűk saját tárhelyről jönnek (assets/fonts.css);
+  - a Google-térkép csak kattintásra tölt be (index.html, .find .m);
+  - localStorage: csak a választott nyelv ('tommys-lang').
+  Ha ezek közül bármi változik (statisztika, pixel, rendelő-űrlap), EZT az oldalt is frissíteni kell.
+  A két nyelv egymás alatt áll; JS-sel csak a választott látszik.
+-->
+<style>
+:root{--ink:#100C0D;--ink-2:#0A0708;--gold:#E8B23A;--cream:#F4EDE2;--muted:rgba(244,237,226,.66);--hair:rgba(244,237,226,.12)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--cream);font:400 16px/1.7 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:760px;margin:0 auto;padding:22px 16px;border-bottom:1px solid var(--hair)}
+.top img{height:40px;display:block}
+.langs{display:flex;gap:6px}
+.langs button{background:none;border:1px solid var(--hair);color:var(--muted);font:700 12px/1 Figtree,sans-serif;letter-spacing:.12em;padding:9px 11px;cursor:pointer}
+.langs button.on{border-color:var(--gold);color:var(--gold)}
+main{max-width:760px;margin:0 auto;padding:clamp(32px,6vw,64px) 16px 72px}
+h1{font:400 clamp(40px,8vw,64px)/1.14 Anton,Impact,sans-serif;letter-spacing:.01em;margin:0 0 14px;text-transform:uppercase}
+.lead{color:var(--muted);font-size:18px;margin:0 0 36px}
+h2{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:800;margin:40px 0 12px}
+p,li{color:var(--muted)}
+b{color:var(--cream);font-weight:700}
+ul{padding-left:20px}
+li{margin-bottom:6px}
+.hataly{margin-top:44px;font-size:14px}
+.back{display:inline-block;margin-top:28px;font-weight:700;text-decoration:none}
+html.js [data-lang]{display:none}
+html.js[lang="hu"] [data-lang="hu"],html.js[lang="ro"] [data-lang="ro"]{display:block}
+html:not(.js) section[data-lang="ro"]{margin-top:80px;padding-top:40px;border-top:1px solid var(--hair)}
+</style>
+<script>
+/* a főoldalon választott nyelv (localStorage 'tommys-lang') itt is érvényes */
+(function(){var d=document.documentElement,l='hu';try{l=localStorage.getItem('tommys-lang')||'hu'}catch(e){}
+d.className='js';d.lang=(l==='ro'?'ro':'hu');})();
+</script>
+</head>
+<body>
+
+<header class="top">
+  <a href="./"><img src="assets/w/tommys-logo-240.webp" alt="Tommy's Pizza &amp; Food"></a>
+  <div class="langs">
+    <button type="button" data-set="hu">HU</button>
+    <button type="button" data-set="ro">RO</button>
+  </div>
+</header>
+
+<main>
+
+<section data-lang="hu" lang="hu">
+  <h1>Adatvédelem</h1>
+  <p class="lead">Röviden: az oldal nem használ sütiket és nem követ téged. Személyes adatot csak akkor kapunk, ha rendelsz vagy írsz nekünk, és azt is csak a rendelésedhez használjuk.</p>
+
+  <h2>1. Ki kezeli az adataidat?</h2>
+  <ul>
+    <li><b>THOMAS CENTER SRL</b> (Tommy's Pizza &amp; Food)</li>
+    <li>Adószám (CUI): 17028774 · Cégjegyzékszám: J2004001198199</li>
+    <li>Cím: Berde Mózes u., 535400 Székelykeresztúr, Hargita megye</li>
+    <li>E-mail: <a href="mailto:tommyspizzafood@gmail.com">tommyspizzafood@gmail.com</a> · Telefon: <a href="tel:+40759614325">0759 614 325</a></li>
+  </ul>
+
+  <h2>2. Milyen adatokat kezelünk, és miért?</h2>
+  <p>Ha telefonon, e-mailben, Facebookon vagy Instagramon rendelsz vagy érdeklődsz, megkapjuk a neved, a telefonszámod, kiszállításnál a címed, és amit a rendeléshez megadsz. Ezeket kizárólag a rendelésed elkészítésére, kiszállítására és az ezzel kapcsolatos egyeztetésre használjuk. Reklámot nem küldünk, és az adataidat senkinek nem adjuk el.</p>
+  <p>Jogalap: a rendelés (szerződés) teljesítése — GDPR 6. cikk (1) b) pont. A számviteli bizonylatokat a jogszabályban előírt ideig őrizzük meg — GDPR 6. cikk (1) c) pont.</p>
+
+  <h2>3. Meddig őrizzük?</h2>
+  <p>A rendelés adatait csak addig tartjuk meg, amíg a rendelés teljesítéséhez és az esetleges panasz rendezéséhez szükséges. A számviteli bizonylatokat a román számviteli törvény szerinti ideig őrizzük.</p>
+
+  <h2>4. Ki fér hozzá?</h2>
+  <ul>
+    <li>A rendelést feldolgozó munkatársaink és a futár, csak a kiszállításhoz szükséges mértékben.</li>
+    <li>A weboldal tárhelyszolgáltatója (Cloudflare, Inc.) a látogatás technikai adatait (például az IP-címet) biztonsági okból rövid ideig naplózhatja.</li>
+    <li>Ha Facebookon vagy Instagramon írsz, az üzenetre a Meta Platforms Ireland Ltd. saját adatkezelési szabályai is vonatkoznak.</li>
+  </ul>
+
+  <h2>5. Sütik és külső tartalmak</h2>
+  <ul>
+    <li>Az oldal nem használ sütiket, és nem mér látogatottságot.</li>
+    <li>A betűtípusok az oldal saját tárhelyéről töltődnek be, így a látogatásodról külső szolgáltató nem kap adatot.</li>
+    <li>A böngésződ csak a választott nyelvet jegyzi meg (helyi tárolóban). Ez nem személyes adat, és nem kerül hozzánk.</li>
+    <li>A Google-térkép csak akkor töltődik be, ha rákattintasz. Onnantól a Google adatkezelési szabályai érvényesek.</li>
+    <li>A Facebook- és Instagram-linkek ezeket a szolgáltatásokat nyitják meg, amelyekre a saját szabályaik vonatkoznak.</li>
+  </ul>
+
+  <h2>6. Milyen jogaid vannak?</h2>
+  <p>Bármikor kérheted, hogy megmondjuk, milyen adatot tárolunk rólad, kijavítsuk vagy töröljük, korlátozzuk a kezelését, tiltakozhatsz ellene, és kérheted, hogy géppel olvasható formában kiadjuk. Írj nekünk: <a href="mailto:tommyspizzafood@gmail.com">tommyspizzafood@gmail.com</a> — legfeljebb egy hónapon belül válaszolunk.</p>
+  <p>Panaszt tehetsz a romániai adatvédelmi hatóságnál is: Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP), București, B-dul G-ral. Gheorghe Magheru 28–30, <a href="https://www.dataprotection.ro" target="_blank" rel="noopener">www.dataprotection.ro</a>.</p>
+
+  <h2>7. Fogyasztóvédelem</h2>
+  <p>Fogyasztói panasszal az Országos Fogyasztóvédelmi Hatósághoz (ANPC) fordulhatsz: <a href="https://anpc.ro" target="_blank" rel="noopener">anpc.ro</a>. Vitás ügyek alternatív rendezése (SAL): <a href="https://www.anpc.ro/sal" target="_blank" rel="noopener">anpc.ro/sal</a>.</p>
+
+  <p class="hataly">Hatályos: 2026. október 20.</p>
+  <a class="back" href="./">← Vissza a főoldalra</a>
+</section>
+
+<section data-lang="ro" lang="ro">
+  <h1>Confidențialitate</h1>
+  <p class="lead">Pe scurt: site-ul nu folosește cookie-uri și nu te urmărește. Primim date personale doar dacă comanzi sau ne scrii, și le folosim doar pentru comanda ta.</p>
+
+  <h2>1. Cine prelucrează datele tale?</h2>
+  <ul>
+    <li><b>THOMAS CENTER SRL</b> (Tommy's Pizza &amp; Food)</li>
+    <li>CUI: 17028774 · Nr. Reg. Com.: J2004001198199</li>
+    <li>Adresa: Str. Berde Mózes, 535400 Cristuru Secuiesc, jud. Harghita</li>
+    <li>E-mail: <a href="mailto:tommyspizzafood@gmail.com">tommyspizzafood@gmail.com</a> · Telefon: <a href="tel:+40759614325">0759 614 325</a></li>
+  </ul>
+
+  <h2>2. Ce date prelucrăm și de ce?</h2>
+  <p>Dacă ne comanzi sau ne contactezi telefonic, prin e-mail, Facebook sau Instagram, primim numele, numărul de telefon, adresa (la livrare) și ce ne comunici pentru comandă. Le folosim exclusiv pentru pregătirea și livrarea comenzii și pentru comunicarea legată de aceasta. Nu trimitem reclame și nu vindem datele nimănui.</p>
+  <p>Temei legal: executarea comenzii (contractului) — art. 6 alin. (1) lit. b) GDPR. Documentele contabile le păstrăm pe durata prevăzută de lege — art. 6 alin. (1) lit. c) GDPR.</p>
+
+  <h2>3. Cât timp le păstrăm?</h2>
+  <p>Datele comenzii le păstrăm doar cât este necesar pentru onorarea comenzii și soluționarea unei eventuale reclamații. Documentele contabile se păstrează pe durata prevăzută de legea contabilității.</p>
+
+  <h2>4. Cine are acces?</h2>
+  <ul>
+    <li>Colegii care procesează comanda și curierul, doar în măsura necesară livrării.</li>
+    <li>Furnizorul de găzduire al site-ului (Cloudflare, Inc.) poate înregistra pentru scurt timp, din motive de securitate, date tehnice ale vizitei (de exemplu adresa IP).</li>
+    <li>Dacă ne scrii pe Facebook sau Instagram, mesajului i se aplică și regulile proprii ale Meta Platforms Ireland Ltd.</li>
+  </ul>
+
+  <h2>5. Cookie-uri și conținut extern</h2>
+  <ul>
+    <li>Site-ul nu folosește cookie-uri și nu măsoară traficul.</li>
+    <li>Fonturile se încarcă de pe serverul propriu al site-ului, astfel niciun furnizor extern nu primește date despre vizita ta.</li>
+    <li>Browserul tău reține doar limba aleasă (în stocarea locală). Aceasta nu este o dată personală și nu ajunge la noi.</li>
+    <li>Harta Google se încarcă doar dacă dai clic pe ea. De atunci se aplică regulile Google.</li>
+    <li>Linkurile de Facebook și Instagram deschid aceste servicii, care au propriile reguli.</li>
+  </ul>
+
+  <h2>6. Ce drepturi ai?</h2>
+  <p>Oricând poți cere să afli ce date deținem despre tine, să le rectificăm sau să le ștergem, să restricționăm prelucrarea, te poți opune prelucrării și poți cere datele într-un format care poate fi citit automat. Scrie-ne: <a href="mailto:tommyspizzafood@gmail.com">tommyspizzafood@gmail.com</a> — răspundem în cel mult o lună.</p>
+  <p>Poți depune plângere și la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP), București, B-dul G-ral. Gheorghe Magheru 28–30, <a href="https://www.dataprotection.ro" target="_blank" rel="noopener">www.dataprotection.ro</a>.</p>
+
+  <h2>7. Protecția consumatorilor</h2>
+  <p>Pentru reclamații te poți adresa Autorității Naționale pentru Protecția Consumatorilor (ANPC): <a href="https://anpc.ro" target="_blank" rel="noopener">anpc.ro</a>. Soluționarea alternativă a litigiilor (SAL): <a href="https://www.anpc.ro/sal" target="_blank" rel="noopener">anpc.ro/sal</a>.</p>
+
+  <p class="hataly">În vigoare din: 20 octombrie 2026.</p>
+  <a class="back" href="./">← Înapoi la pagina principală</a>
+</section>
+
+</main>
+
+<script>
+document.querySelectorAll('.langs button').forEach(function(b){
+  b.classList.toggle('on', b.dataset.set===document.documentElement.lang);
+  b.addEventListener('click',function(){
+    var l=b.dataset.set; document.documentElement.lang=l;
+    try{localStorage.setItem('tommys-lang',l)}catch(e){}
+    document.querySelectorAll('.langs button').forEach(function(x){x.classList.toggle('on',x===b)});
+  });
+});
+</script>
+</body>
+</html>

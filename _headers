@@ -10,14 +10,18 @@
 /assets/*
   Cache-Control: public, max-age=86400
 
+# A betűfájlok nem változnak (verzió nélküli, de rögzített OFL-fájlok).
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # A HTML mindig ellenőrizze magát — ártól étlapig minden benne van, elavult
 # másolat itt a legdrágább.
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
 # Alap biztonsági fejlécek.
-# Szándékosan NINCS Content-Security-Policy: a Google Maps beágyazás és a
-# Google Fonts miatt egy szűk CSP eltörné a térképet és a betűket.
+# Szándékosan NINCS Content-Security-Policy: a (kattintásra betöltő) Google
+# Maps-beágyazást egy szűk CSP eltörné. A betűk 2026-10-20 óta saját tárhelyről jönnek.
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
